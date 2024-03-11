@@ -15,7 +15,7 @@ public class Product {
 
     private String productName;
 
-   // private String description;
+    private String description;
 
     private Double price;
 
@@ -37,13 +37,13 @@ public class Product {
         this.productName = productName;
     }
 
-    /*public String getDescription() {
+    public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
-    }*/
+    }
 
     public Double getPrice() {
         return price;

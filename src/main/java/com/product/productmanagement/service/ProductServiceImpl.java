@@ -47,7 +47,7 @@ public class ProductServiceImpl implements ProductService {
         Product oldProduct = productRepo.findById(id).get();
 
         oldProduct.setProductName(p.getProductName());
-       // oldProduct.setDescription(p.getDescription());
+        oldProduct.setDescription(p.getDescription());
         oldProduct.setPrice(p.getPrice());
         oldProduct.setStatus(p.getStatus());
 
