@@ -19,15 +19,15 @@ public class Product {
 
     private String status;
 
-    public String getCategories() {
-        return categories;
-    }
-
-    public void setCategories(String categories) {
-        this.categories = categories;
-    }
-
-    private String categories;
+//    public String getCategories() {
+//        return categories;
+//    }
+//
+//    public void setCategories(String categories) {
+//        this.categories = categories;
+//    }
+//
+//    private String categories;
 
     @ManyToOne
     @JoinColumn(name = "category_id")

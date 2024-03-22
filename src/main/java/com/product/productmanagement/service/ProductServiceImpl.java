@@ -46,13 +46,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public String deleteProduct(Integer id) {
-        Product product = productRepo.findById(id).get();
+        Optional<Product> product = productRepo.findById(id);
 
-        if (product != null) {
-            productRepo.delete(product);
-            return "Product Delete Sucessfully";
+        if (product.isPresent()) {
+            productRepo.delete(product.get());
+            productRepo.flush();
+            return "Product Deleted Successfully";
         }
-
         return "Something wrong on server";
     }
 
@@ -65,7 +65,7 @@ public class ProductServiceImpl implements ProductService {
         oldProduct.setDescription(p.getDescription());
         oldProduct.setPrice(p.getPrice());
         oldProduct.setStatus(p.getStatus());
-        oldProduct.setCategories(p.getCategories());
+        //oldProduct.setCategories(p.getCategories());
 
         return productRepo.save(oldProduct);
     }
