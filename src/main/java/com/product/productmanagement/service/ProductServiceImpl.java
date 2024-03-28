@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
@@ -44,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
         return null;
     }
 
-    @Override
+    /*@Override
     public String deleteProduct(Integer id) {
         Optional<Product> product = productRepo.findById(id);
 
@@ -54,7 +55,20 @@ public class ProductServiceImpl implements ProductService {
             return "Product Deleted Successfully";
         }
         return "Something wrong on server";
+    }*/
+
+    @Override
+    public String deleteProduct(Integer id) {
+        Product product = productRepo.findById(id).orElse(null);
+
+        if (product != null) {
+            productRepo.delete(product);
+            return "Product Deleted Successfully";
+        }
+
+        return "Product not found with ID: " + id;
     }
+
 
     @Override
     public Product editProduct(Product p, Integer id) {
